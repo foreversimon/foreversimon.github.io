@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="腾讯地图自定义标记点"/>
+
+
+
+
+  <meta name="keywords" content="JavaScript," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="山根花理">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://yoursite.com/2020/07/20/腾讯地图自定义标记点/"/>
+
+
+<meta name="description" content="首先要有一个地图实例 12345var map &#x3D; new TMap.Map(document.getElementById(&#39;container&#39;), &amp;#123;  center: center,&#x2F;&#x2F;设置地图中心点坐标  zoom: this.zoom,   &#x2F;&#x2F;设置地图缩放级别  showControl: false&amp;#125;);  还需要一个点聚合实例 1234567891011va">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯地图自定义标记点">
+<meta property="og:url" content="http://yoursite.com/2020/07/20/%E8%85%BE%E8%AE%AF%E5%9C%B0%E5%9B%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E8%AE%B0%E7%82%B9/index.html">
+<meta property="og:site_name" content="山根花理">
+<meta property="og:description" content="首先要有一个地图实例 12345var map &#x3D; new TMap.Map(document.getElementById(&#39;container&#39;), &amp;#123;  center: center,&#x2F;&#x2F;设置地图中心点坐标  zoom: this.zoom,   &#x2F;&#x2F;设置地图缩放级别  showControl: false&amp;#125;);  还需要一个点聚合实例 1234567891011va">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-20T09:28:22.000Z">
+<meta property="article:modified_time" content="2020-07-20T13:19:20.803Z">
+<meta property="article:author" content="山根花理">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 腾讯地图自定义标记点 - 山根花理 </title>
+  <meta name="generator" content="Hexo 4.2.1"></head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">山根花理</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          腾讯地图自定义标记点
+        
+      </h1>
+
+      <time class="post-time">
+          7月 20 2020
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <p>  首先要有一个地图实例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> TMap.Map(<span class="built_in">document</span>.getElementById(<span class="string">'container'</span>), &#123;</span><br><span class="line">  center: center,<span class="comment">//设置地图中心点坐标</span></span><br><span class="line">  zoom: <span class="keyword">this</span>.zoom,   <span class="comment">//设置地图缩放级别</span></span><br><span class="line">  showControl: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>还需要一个点聚合实例</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> markerCluster = <span class="keyword">new</span> TMap.MarkerCluster(&#123;</span><br><span class="line">    id: <span class="string">'cluster'</span>,</span><br><span class="line">    map: <span class="keyword">this</span>.map,</span><br><span class="line">    enableDefaultStyle: <span class="literal">false</span>, <span class="comment">// 启用默认样式</span></span><br><span class="line">    minimumClusterSize: <span class="number">3</span>, <span class="comment">// 形成聚合簇的最小个数</span></span><br><span class="line">    geometries: list,</span><br><span class="line">    zoomOnClick: <span class="literal">true</span>, <span class="comment">// 点击簇时放大至簇内点分离</span></span><br><span class="line">    gridSize: <span class="number">40</span>, <span class="comment">// 聚合算法的可聚合距离</span></span><br><span class="line">    averageCenter: <span class="literal">false</span>, <span class="comment">// 每个聚和簇的中心是否应该是聚类中所有标记的平均值</span></span><br><span class="line">    maxZoom: <span class="literal">true</span>, <span class="comment">// 采用聚合策略的最大缩放级别</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>写生成标记点的方法之前先要定义存放这些标记点的数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> clusterBubbleList = [] <span class="comment">// 存放聚合点实例</span></span><br><span class="line"><span class="keyword">var</span> markerGeometries = [] <span class="comment">// 存放小标记点的位置</span></span><br><span class="line"><span class="keyword">var</span> markList = [] <span class="comment">// 存放小标记点的实例</span></span><br></pre></td></tr></table></figure>
+
+<p>下一步监听聚合簇变化</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">markerCluster.on(<span class="string">'cluster_changed'</span>, (e) =&gt; &#123;</span><br><span class="line">	<span class="comment">// 这里就可以写生成标记点的方法</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 执行前先清空标记点</span></span><br><span class="line">	<span class="keyword">if</span> (clusterBubbleList.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">		clusterBubbleList.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">			item.destory()</span><br><span class="line">		&#125;)</span><br><span class="line">		clusterBubbleList = []</span><br><span class="line">	&#125;</span><br><span class="line">	markerGeometries = []</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 再根据新的数组生成新的标记点或聚合点</span></span><br><span class="line">	<span class="keyword">var</span> clusters = <span class="keyword">this</span>.markerCluster.getClusters()</span><br><span class="line">	clusters.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="comment">// 如果这一个点里面包含多个点就丢进clusterBubbleList</span></span><br><span class="line">		<span class="keyword">if</span> (item.geometries.length &gt; <span class="number">1</span>) &#123;</span><br><span class="line">			<span class="comment">// 创建一个聚合点实例</span></span><br><span class="line">			<span class="keyword">const</span> clusterBubble = <span class="keyword">new</span> ClusterBubble(&#123;</span><br><span class="line">				map: map,</span><br><span class="line">				position: item.center,</span><br><span class="line">				content: item.geometries.length</span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="comment">// 设置聚合点点击事件</span></span><br><span class="line">			clusterBubble.on(<span class="string">'touchend'</span>, () =&gt; &#123;</span><br><span class="line">				<span class="comment">// 你要做的事 或者官方文档写的放大</span></span><br><span class="line">				map.fitBounds(item.bounds)</span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="comment">// 再把这个点推进clusterBubbleList</span></span><br><span class="line">			clusterBubbleList.push(clusterBubble)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 当只有一个点的时候丢进markerGeometries</span></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">			markerGeometries.push(item.geometries[<span class="number">0</span>])</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 接下来可以创建基本的小标记点，也可以创建自定义的小标记点</span></span><br><span class="line">		<span class="comment">// 官方有建基本的小标记点demo，这里就不贴代码了，接下来是创建自定义小标记点的方法</span></span><br><span class="line">		<span class="comment">// 同样，先需要清除实例</span></span><br><span class="line">		<span class="keyword">if</span> (markList.length) &#123;</span><br><span class="line">			markList.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">				item.destroy()</span><br><span class="line">			&#125;)</span><br><span class="line">			markList = []</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 这里可以用上面获得的小标记点坐标来生成实例</span></span><br><span class="line">		markerGeometries.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">const</span> marker = <span class="keyword">new</span> ClusterBubbleCircle(&#123;</span><br><span class="line">				map: map,</span><br><span class="line">				positon: item.position,</span><br><span class="line">				content: item.content,</span><br><span class="line">				id: item.id,</span><br><span class="line">				type: item.type</span><br><span class="line">			&#125;)</span><br><span class="line">			<span class="comment">// 给小标记点添加事件</span></span><br><span class="line">			marker.on(<span class="string">'touchend'</span>, (e) =&gt; &#123;&#125;)</span><br><span class="line">			<span class="comment">// 同理，压入markList中</span></span><br><span class="line">			markList.push(marker)</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>到此，自定义标记点和自定义聚合就完成了。</p>
+<hr>
+<p>以下是聚合点和标记点类的写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClusterBubbleClass</span> <span class="keyword">extends</span> <span class="title">TMap</span>.<span class="title">DOMOverlay</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    TMap.DOMOverlay.call(<span class="keyword">this</span>, options);</span><br><span class="line">  &#125;</span><br><span class="line">  onInit(options) &#123;</span><br><span class="line">    <span class="keyword">this</span>.content = options.content;</span><br><span class="line">    <span class="keyword">this</span>.position = options.position;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 销毁时需要删除监听器</span></span><br><span class="line">  onDestroy() &#123;</span><br><span class="line">    <span class="keyword">this</span>.dom.removeEventListener(<span class="string">'touchend'</span>, <span class="keyword">this</span>.onClick);</span><br><span class="line">    <span class="keyword">this</span>.removeAllListeners();</span><br><span class="line">  &#125;</span><br><span class="line">  onClick() &#123;</span><br><span class="line">    <span class="keyword">this</span>.emit(<span class="string">'touchend'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 创建气泡DOM元素</span></span><br><span class="line">  createDOM() &#123;</span><br><span class="line">    <span class="keyword">var</span> dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">    dom.classList.add(<span class="string">'clusterBubble'</span>);</span><br><span class="line">    dom.innerText = <span class="keyword">this</span>.content;</span><br><span class="line">    dom.style.cssText = [</span><br><span class="line">      <span class="string">'width: '</span> + (<span class="number">40</span> + <span class="built_in">parseInt</span>(<span class="keyword">this</span>.content) * <span class="number">2</span>) + <span class="string">'px;'</span>,</span><br><span class="line">      <span class="string">'height: '</span> + (<span class="number">40</span> + <span class="built_in">parseInt</span>(<span class="keyword">this</span>.content) * <span class="number">2</span>) + <span class="string">'px;'</span>,</span><br><span class="line">      <span class="string">'line-height: '</span> + (<span class="number">40</span> + <span class="built_in">parseInt</span>(<span class="keyword">this</span>.content) * <span class="number">2</span>) + <span class="string">'px;'</span>,</span><br><span class="line">    ].join(<span class="string">' '</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 监听点击事件，实现zoomOnClick</span></span><br><span class="line">    <span class="keyword">this</span>.onClick = <span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>);</span><br><span class="line">    dom.addEventListener(<span class="string">'touchend'</span>, <span class="keyword">this</span>.onClick);</span><br><span class="line">    <span class="keyword">return</span> dom;</span><br><span class="line">  &#125;</span><br><span class="line">  updateDOM() &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.map) &#123;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 经纬度坐标转容器像素坐标</span></span><br><span class="line">    <span class="keyword">let</span> pixel = <span class="keyword">this</span>.map.projectToContainer(<span class="keyword">this</span>.position);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使文本框中心点对齐经纬度坐标点</span></span><br><span class="line">    <span class="keyword">let</span> left = pixel.getX() - <span class="keyword">this</span>.dom.clientWidth / <span class="number">2</span> + <span class="string">'px'</span>;</span><br><span class="line">    <span class="keyword">let</span> top = pixel.getY() - <span class="keyword">this</span>.dom.clientHeight / <span class="number">2</span> + <span class="string">'px'</span>;</span><br><span class="line">    <span class="keyword">this</span>.dom.style.transform = <span class="string">`translate(<span class="subst">$&#123;left&#125;</span>, <span class="subst">$&#123;top&#125;</span>)`</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.emit(<span class="string">'dom_updated'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/JavaScript/">JavaScript</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2020/07/20/hello-world/">
+        <span class="next-text nav-default">Hello World</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2020
+    <span class="footer-author">山根花理.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear" target="_blank" rel="noopener">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
