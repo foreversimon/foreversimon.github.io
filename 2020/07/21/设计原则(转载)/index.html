@@ -12,7 +12,7 @@
 
 
 
-  <meta name="description" content="对设计原则的理解"/>
+  <meta name="description" content="设计原则（转载）"/>
 
 
 
@@ -32,18 +32,18 @@
 
 
 
-<link rel="canonical" href="http://yoursite.com/2020/07/21/对设计原则的理解/"/>
+<link rel="canonical" href="http://yoursite.com/2020/07/21/设计原则(转载)/"/>
 
 
-<meta name="description" content="设计原则 单一职责原则（SRP） 一个对象或方法只做一件事情自己的理解： 如果一个对象或方法关联着其他的方法，会导致后期维护困难，在需求变更时有可能会伤筋动骨。一个对象或方法只做一件事也可以更好的复用。">
+<meta name="description" content="SOLID五大设计原则 S（Single responsibility principle）——单一职责原则一个程序只做好一件事如果功能过于复杂就拆分开，每个部分保持独立  O（Open Closed Principle）——开放封闭原则 面向对象的核心对扩展开放，对修改封闭增加需求时，扩展新代码，而非修改已有代码  L（Liskov Substitution Principle, LSP）——李">
 <meta property="og:type" content="article">
-<meta property="og:title" content="对设计原则的理解">
-<meta property="og:url" content="http://yoursite.com/2020/07/21/%E5%AF%B9%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:title" content="设计原则（转载）">
+<meta property="og:url" content="http://yoursite.com/2020/07/21/%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99(%E8%BD%AC%E8%BD%BD)/index.html">
 <meta property="og:site_name" content="山根花理">
-<meta property="og:description" content="设计原则 单一职责原则（SRP） 一个对象或方法只做一件事情自己的理解： 如果一个对象或方法关联着其他的方法，会导致后期维护困难，在需求变更时有可能会伤筋动骨。一个对象或方法只做一件事也可以更好的复用。">
+<meta property="og:description" content="SOLID五大设计原则 S（Single responsibility principle）——单一职责原则一个程序只做好一件事如果功能过于复杂就拆分开，每个部分保持独立  O（Open Closed Principle）——开放封闭原则 面向对象的核心对扩展开放，对修改封闭增加需求时，扩展新代码，而非修改已有代码  L（Liskov Substitution Principle, LSP）——李">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-21T07:27:35.000Z">
-<meta property="article:modified_time" content="2020-07-21T07:44:34.390Z">
+<meta property="article:modified_time" content="2020-07-21T09:02:44.641Z">
 <meta property="article:author" content="山根花理">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -71,7 +71,7 @@
 
 
 
-    <title> 对设计原则的理解 - 山根花理 </title>
+    <title> 设计原则（转载） - 山根花理 </title>
   <meta name="generator" content="Hexo 4.2.1"></head>
 
   <body>
@@ -117,7 +117,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          对设计原则的理解
+          设计原则（转载）
         
       </h1>
 
@@ -130,11 +130,21 @@
 
     
             <div class="post-content">
-            <h1 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h1><hr>
-<h2 id="单一职责原则（SRP）"><a href="#单一职责原则（SRP）" class="headerlink" title="单一职责原则（SRP）"></a>单一职责原则（SRP）</h2><blockquote>
-<p>一个对象或方法只做一件事情<br><strong>自己的理解：</strong> 如果一个对象或方法关联着其他的方法，会导致后期维护困难，在需求变更时有可能会伤筋动骨。一个对象或方法只做一件事也可以更好的复用。</p>
-</blockquote>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+            <h2 id="SOLID五大设计原则"><a href="#SOLID五大设计原则" class="headerlink" title="SOLID五大设计原则"></a>SOLID五大设计原则</h2><ol>
+<li><p>S（Single responsibility principle）——单一职责原则<br>一个程序只做好一件事<br>如果功能过于复杂就拆分开，每个部分保持独立</p>
+</li>
+<li><p>O（Open Closed Principle）——开放封闭原则</p>
+<p>面向对象的核心<br>对扩展开放，对修改封闭<br>增加需求时，扩展新代码，而非修改已有代码</p>
+</li>
+<li><p>L（Liskov Substitution Principle, LSP）——李氏置换原则<br>子类能覆盖父类<br>父类能出现的地方子类就能出现<br>js中使用功能较少（弱类型 &amp; 继承使用较少）</p>
+</li>
+<li><p>I (Interface Segregation Principle)——接口独立原则<br>保持接口的单一独立<br>js中没有接口概念（typescript例外）<br>类似单一职责原则，这里更关注接口</p>
+</li>
+<li><p>D（Dependence Inversion Principle ,DIP）——依赖倒置原则<br>面向接口编程，依赖于抽象而不依赖于具体<br>使用方只关注接口而不关注具体类的实现<br>js中使用较少（没有接口概念，弱类型）</p>
+</li>
+</ol>
+<p>作者：jia林<br>链接：<a href="https://www.jianshu.com/p/a7bdf239125c" target="_blank" rel="noopener">https://www.jianshu.com/p/a7bdf239125c</a><br>来源：简书</p>
+
             </div>
           
 
